@@ -37,8 +37,8 @@ Route::get('admin/admin', [AdminController::class, 'index'], function () {
     return view('admin.admin');
 })->name('admin/admin');
 
-Route::get('admin/admin/detail-admin', [AdminController::class, 'show'], function () {
-    return view('admin.admin.detail-admin');
+Route::get('admin/admin/detail-admin/{id}', [AdminController::class, 'show'], function () {
+    return view('admin.detail-admin');
 })->name('admin/admin/detail-admin');
 
 Route::get('admin/artikel', function () {

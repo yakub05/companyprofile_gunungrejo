@@ -62,7 +62,7 @@
                         <td>{{ $item->AdminFoto }}</td>
                         <td>{{ $item->nama }}</td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
+                            <a class="btn btn-primary btn-sm" href="admin/detail-admin/{{$item->id}}">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
