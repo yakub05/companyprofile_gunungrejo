@@ -14,7 +14,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="home">Home</a></li>
-            <li class="breadcrumb-item active">Admin</li>
+            <li class="breadcrumb-item active">Data Admin</li>
           </ol>
         </div>
       </div>
@@ -27,15 +27,10 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Data Admin</h3>
-
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-          </button>
+        <div class="row">
+            <div class="card-body">
+                <h3 class="card-title">Data Admin</h3>
+            </div>
         </div>
       </div>
       <div class="card-body p-0">
@@ -62,7 +57,7 @@
                         <td>{{ $item->AdminFoto }}</td>
                         <td>{{ $item->nama }}</td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="admin/detail-admin/{{$item->id}}">
+                            <a class="btn btn-primary btn-sm" href="admin/detail-admin/{{$item->nama}}">
                                 <i class="fas fa-folder">
                                 </i>
                                 View

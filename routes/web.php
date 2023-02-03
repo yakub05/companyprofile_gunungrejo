@@ -30,10 +30,16 @@ Route::get('Portfolio', function () {
     return view('Portfolio');
 })->name('Portfolio');
 
+
+//web admin
+
+//page home
 Route::get('admin/home', function () {
     return view('admin.home');
 })->name('admin/home');
 
+
+//page admin
 Route::get('admin/admin', [AdminController::class, 'index'], function () {
     return view('admin.admin');
 })->name('admin/admin');
@@ -42,30 +48,36 @@ Route::get('admin/admin/detail-admin/{id}', [AdminController::class, 'show'], fu
     return view('admin.detail-admin');
 })->name('admin/admin/detail-admin');
 
-Route::get('admin/artikel', function () {
+
+//page artikel
+Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {
     return view('admin.artikel');
 })->name('admin/artikel');
 
-Route::get('admin/gallery', function () {
+Route::get('admin/artikel/detail-artikel/{id}', [ArtikelController::class, 'show'], function () {
+    return view('admin.detail-artikel');
+})->name('admin/artikel/detail-artikel');
+
+Route::get('admin/artikel/create-artikel', [ArtikelController::class, 'create'], function () {
+    return view('artikel.create-artikel');
+})->name('admin/artikel/create-artikel');
+Route::post('/admin/artikel', [ArtikelController::class, 'store']);
+// Route::get('/admin/artikel/create-artikel/checkSlug', [ArtikelController::class, 'checkSlug'])->middleware('auth');
+
+
+//page gallery
+Route::get('admin/gallery', [GalleryController::class, 'index'], function () {
     return view('admin.gallery');
 })->name('admin/gallery');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('auth/login', function () {
-    return view('layout.login.login');
-})->name('auth/login');
-
-Route::get('registrasi', function () {
-    return view('layout.registrasi.registrasi');
-})->name('registrasi');
-
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';

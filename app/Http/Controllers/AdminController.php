@@ -12,9 +12,9 @@ class AdminController extends Controller
         return view('admin/admin', ['adminList' => $admin]);
     }
 
-    public function show($id)
+    public function show($nama)
     {
-        $admin = Admin::find($id);
+        $admin = Admin::get()->where('nama', $nama)->first();
         return view('admin/detail-admin', ['admin' => $admin]);
     }
 }

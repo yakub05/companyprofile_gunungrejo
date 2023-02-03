@@ -9,13 +9,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Profile</h1>
+          <h1>Gallery</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
-            <li class="breadcrumb-item"><a href="/admin/admin">Admin</a></li>
-            <li class="breadcrumb-item active">User Profile</li>
+            <li class="breadcrumb-item"><a href="/admin/gallery">Gallery</a></li>
+            <li class="breadcrumb-item active">Detail Gallery</li>
           </ol>
         </div>
       </div>
@@ -30,40 +30,41 @@
           <div class="card-header">
             <h3 class="card-title">Detail</h3>
           </div>
-          <div class="row">
-            <div class="col-md-4">
+          
+            <div class="col-md-15">
               <!-- Profile Image -->
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img class="card-img img-circle"
+                    <img class="card-img"
                          src=""
-                         alt="Foto Profil User">
+                         alt="Gambar">
                   </div>
                 </div>
                 <!-- /.card-body -->
+
               <!-- /.card -->
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <strong><i class="fa fa-user mr-1"></i> Nama</strong>
+        
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fa fa-book mr-1"></i> Judul</strong>
 
-              <p class="text-muted">
-                {{$admin->nama}}
-              </p>
+                <p class="text-muted">
+                  {{$gallery->GalleryJudul}}
+                </p>
 
-              <hr>
+                <hr>
+                
+                <strong><i class="fa fa-calendar mr-1"></i> Tanggal</strong>
 
-              <strong><i class="fa fa-envelope mr-1"></i> Email</strong>
+                <p class="text-muted">{{$gallery->GalleryTanggal}}</p>
 
-              <p class="text-muted">{{$admin->email}}</p>
+                <hr>
 
-              <hr>
+                <strong><i class="fa fa-quote-left mr-1"></i> Deskripsi</strong>
 
-              <strong><i class="fa fa-phone mr-1"></i> Nomor Telepon</strong>
-
-              <p class="text-muted">{{$admin->NoTelp}}</p>
-            </div>
-            <!-- /.card-body -->
+                <p class="text-muted">{{$gallery->GalleryDeskripsi}}</p>
+              </div>
+              <!-- /.card-body -->
           </div>
         </div>
         <!-- /.card -->
