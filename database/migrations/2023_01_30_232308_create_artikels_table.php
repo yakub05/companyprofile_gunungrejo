@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('artikels', function (Blueprint $table) {
-            $table->string('no', 30)->primary();
+            $table->id()->unsignedInteger()->increments();
             $table->string('ArtikelFoto')->nullable();
             $table->string('ArtikelJudul');
-            $table->string('ArikelSlug')->unique();
+            $table->string('ArtikelSlug')->unique();
             $table->date('WaktuPembuatan');
             $table->text('ArtikelDeskripsi');
             $table->string('Author');

@@ -13,9 +13,9 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
-            <li class="breadcrumb-item"><a href="/admin/admin">Admin</a></li>
-            <li class="breadcrumb-item active">User Profile</li>
+            <li class="breadcrumb-item"><a href="home">Home</a></li>
+            <li class="breadcrumb-item"><a href="admin">Admin</a></li>
+            <li class="breadcrumb-item active">Edit</li>
           </ol>
         </div>
       </div>
@@ -28,7 +28,7 @@
         <!-- Admin Box -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Detail</h3>
+            <h3 class="card-title">Edit Data</h3>
           </div>
           <div class="row">
             <div class="col-md-4">
@@ -41,11 +41,12 @@
                   </div>
                 </div>
                 <!-- /.card-body -->
+
               <!-- /.card -->
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <strong><i class="fa fa-user mr-1"></i> Nama</strong>
+              <strong><i class="fas fa-book mr-1"></i>Nama</strong>
 
               <p class="text-muted">
                 {{$admin->nama}}
@@ -53,13 +54,13 @@
 
               <hr>
 
-              <strong><i class="fa fa-envelope mr-1"></i> Email</strong>
+              <strong><i class="fas fa-map-marker-alt mr-1"></i> Email</strong>
 
               <p class="text-muted">{{$admin->email}}</p>
 
               <hr>
 
-              <strong><i class="fa fa-phone mr-1"></i> Nomor Telepon</strong>
+              <strong><i class="fas fa-pencil-alt mr-1"></i> Nomor Telepon</strong>
 
               <p class="text-muted">{{$admin->NoTelp}}</p>
             </div>

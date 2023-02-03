@@ -34,25 +34,25 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-                <a href="home" class="nav-link">
+                <a href="/admin/home" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard</p>
+                  <p>Home</p>
                 </a>
           </li>
           <li class="nav-item">
-                <a href="admin" class="nav-link">
+                <a href="/admin/admin" class="nav-link">
                   <i class="nav-icon fas fa-table"></i>
                   <p>Admin</p>
                 </a>
           </li>
           <li class="nav-item">
-                <a href="artikel" class="nav-link">
+                <a href="/admin/artikel" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>Artikel</p>
                 </a>
           </li>
           <li class="nav-item">
-                <a href="gallery" class="nav-link">
+                <a href="/admin/gallery" class="nav-link">
                   <i class="nav-icon far fa-image"></i>
                   <p>Gallery</p>
                 </a>
