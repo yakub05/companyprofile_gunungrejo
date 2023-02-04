@@ -33,13 +33,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Artikel</h1>
+          <h1>Admin</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
-            <li class="breadcrumb-item"><a href="/admin/artikel">Artikel</a></li>
-            <li class="breadcrumb-item active">Tambah Artikel</li>
+            <li class="breadcrumb-item"><a href="/admin/admin">Admin</a></li>
+            <li class="breadcrumb-item active">Tambah Admin</li>
           </ol>
         </div>
       </div>
@@ -48,7 +48,7 @@
 
   <!-- Main content -->
   <section class="content">
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -56,60 +56,52 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
       <div class="col-md-20">
-        <form action="/admin/artikel" method="post" enctype="multipart/form-data" class="mb-5">
+        <form action="/admin/admin" method="post" enctype="multipart/form-data" class="mb-5">
           @csrf
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Form Tambah Artikel</h3>
+              <h3 class="card-title">Form Tambah Admin</h3>
             </div>
             <div class="card-body">
               <div class="form-group">
                 <div class="mb-3">
-                  <label for="ArtikelFoto" class="form-label">Gambar Artikel</label>
-                  <input class="form-control" type="file" id="ArtikelFoto" name="ArtikelFoto" value="{{ old('ArtikelFoto') }}">
+                  <label for="AdminFoto" class="form-label">Gambar Admin</label>
+                  <input class="form-control" type="file" id="AdminFoto" name="AdminFoto" value="{{ old('AdminFoto') }}">
+                  @error('AdminFoto')
+                    <p class="text-danger">{{ $message }}</p>
+                  @enderror
                 </div> 
               </div>
               <div class="form-group">
-                <label for="ArtikelJudul" class="form-label">Judul Artikel</label>
-                <input type="text" id="ArtikelJudul" class="form-control" name="ArtikelJudul" value="{{ old('ArtikelJudul') }}" required>
-              </div>
-              {{-- <div class="form-group">
-                <label for="ArtikelSlug" class="form-label">Slug</label>
-                <input type="text" id="ArtikelSlug" class="form-control" name="ArtikelSlug">
-              </div> --}}
-              <div class="row form-group">
-                <label for="WaktuPembuatan" class="form-label">Tanggal Pembuatan</label>
-                <div class="col-sm-5">
-                  <div class="input-group date" data-provide="datepicker" data-date-format='yyyy-mm-dd'>
-                    <input type="text" class="form-control" id="WaktuPembuatan" name="WaktuPembuatan" value="{{ old('WaktuPembuatan') }}" required>
-                    <span class="input-group-append">
-                      <span class="input-group-text bg-white">
-                        <i class="fas fa-calendar"></i>
-                      </span>
-                    </span>
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="Author" class="form-label">Author</label>
-                <input type="text" id="Author" class="form-control" name="Author" value="{{ old('Author') }}" required>
-              </div>
-              <div class="form-group">
-                <label for="ArtikelDeskripsi" class="form-label">Deskripsi Artikel</label>
-                <input id="ArtikelDeskripsi" type="hidden" name="ArtikelDeskripsi" value="{{ old('ArtikelDeskripsi') }}">
-                <trix-editor input="ArtikelDeskripsi" required></trix-editor>
-                @error('ArtikelDeskripsi')
+                <label for="nama" class="form-label">Nama Admin</label>
+                <input type="text" id="nama" class="form-control" name="nama" value="{{ old('nama') }}" required>
+                @error('nama')
                   <p class="text-danger">{{ $message }}</p>
                 @enderror
               </div>
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                @error('email')
+                  <p class="text-danger">{{ $message }}</p>
+                @enderror
+              </div>
+              <div class="form-group">
+                <label for="NoTelp" class="form-label">Nomor Telepon</label>
+                <input type="text" id="NoTelp" class="form-control" name="NoTelp" value="{{ old('NoTelp') }}" required>
+                @error('NoTelp')
+                  <p class="text-danger">{{ $message }}</p>
+                @enderror
+              </div>
+              <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" name="password" value="{{ old('password') }}" required>
+              </div>
               <div class="row">
                 <div class="col-12">
-                  <a href="/admin/artikel" class="btn btn-secondary">Batal</a>
+                  <a href="/admin/admin" class="btn btn-secondary">Batal</a>
                   <input type="submit" value="Tambah Data" class="btn btn-success float-right">
                 </div>
               </div>
@@ -140,13 +132,13 @@
 </script>
 
 {{-- <script>
-  const ArtikelJudul =  document.querySelector('#ArtikelJudul');
-  const ArtikelSlug = document.querySelector('#ArtikelSlug');
+  const nama =  document.querySelector('#nama');
+  const AdminSlug = document.querySelector('#AdminSlug');
 
-  ArtikelJudul.addEventListener('change', function(){
-    fetch('/admin/artikel/checkSlug?ArtikelJudul=' + ArtikelJudul.value)
+  nama.addEventListener('change', function(){
+    fetch('/admin/Admin/checkSlug?nama=' + nama.value)
       .then(response => response.json())
-      .then(data => ArtikelSlug.value = data.ArtikelSlug)
+      .then(data => AdminSlug.value = data.AdminSlug)
   });
 </script> --}}
 

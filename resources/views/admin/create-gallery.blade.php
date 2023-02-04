@@ -33,13 +33,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Artikel</h1>
+          <h1>Gallery</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
-            <li class="breadcrumb-item"><a href="/admin/artikel">Artikel</a></li>
-            <li class="breadcrumb-item active">Tambah Artikel</li>
+            <li class="breadcrumb-item"><a href="/admin/Gallery">Gallery</a></li>
+            <li class="breadcrumb-item active">Tambah Gallery</li>
           </ol>
         </div>
       </div>
@@ -58,32 +58,28 @@
         </div>
     @endif
       <div class="col-md-20">
-        <form action="/admin/artikel" method="post" enctype="multipart/form-data" class="mb-5">
+        <form action="/admin/gallery" method="post" enctype="multipart/form-data" class="mb-5">
           @csrf
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Form Tambah Artikel</h3>
+              <h3 class="card-title">Form Tambah Gallery</h3>
             </div>
             <div class="card-body">
               <div class="form-group">
                 <div class="mb-3">
-                  <label for="ArtikelFoto" class="form-label">Gambar Artikel</label>
-                  <input class="form-control" type="file" id="ArtikelFoto" name="ArtikelFoto" value="{{ old('ArtikelFoto') }}">
+                  <label for="GalleryFoto" class="form-label">Gambar Gallery</label>
+                  <input class="form-control" type="file" id="GalleryFoto" name="GalleryFoto" value="{{ old('GalleryFoto') }}">
                 </div> 
               </div>
               <div class="form-group">
-                <label for="ArtikelJudul" class="form-label">Judul Artikel</label>
-                <input type="text" id="ArtikelJudul" class="form-control" name="ArtikelJudul" value="{{ old('ArtikelJudul') }}" required>
+                <label for="GalleryJudul" class="form-label">Judul Gallery</label>
+                <input type="text" id="GalleryJudul" class="form-control" name="GalleryJudul" value="{{ old('GalleryJudul') }}" required>
               </div>
-              {{-- <div class="form-group">
-                <label for="ArtikelSlug" class="form-label">Slug</label>
-                <input type="text" id="ArtikelSlug" class="form-control" name="ArtikelSlug">
-              </div> --}}
               <div class="row form-group">
-                <label for="WaktuPembuatan" class="form-label">Tanggal Pembuatan</label>
+                <label for="GalleryTanggal" class="form-label">Tanggal</label>
                 <div class="col-sm-5">
                   <div class="input-group date" data-provide="datepicker" data-date-format='yyyy-mm-dd'>
-                    <input type="text" class="form-control" id="WaktuPembuatan" name="WaktuPembuatan" value="{{ old('WaktuPembuatan') }}" required>
+                    <input type="text" class="form-control" id="GalleryTanggal" name="GalleryTanggal" value="{{ old('GalleryTanggal') }}" required>
                     <span class="input-group-append">
                       <span class="input-group-text bg-white">
                         <i class="fas fa-calendar"></i>
@@ -96,20 +92,16 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="Author" class="form-label">Author</label>
-                <input type="text" id="Author" class="form-control" name="Author" value="{{ old('Author') }}" required>
-              </div>
-              <div class="form-group">
-                <label for="ArtikelDeskripsi" class="form-label">Deskripsi Artikel</label>
-                <input id="ArtikelDeskripsi" type="hidden" name="ArtikelDeskripsi" value="{{ old('ArtikelDeskripsi') }}">
-                <trix-editor input="ArtikelDeskripsi" required></trix-editor>
-                @error('ArtikelDeskripsi')
+                <label for="GalleryDeskripsi" class="form-label">Deskripsi Gambar</label>
+                @error('GalleryDeskripsi')
                   <p class="text-danger">{{ $message }}</p>
                 @enderror
+                <input id="GalleryDeskripsi" type="hidden" name="GalleryDeskripsi" value="{{ old('GalleryDeskripsi') }}">
+                <trix-editor input="GalleryDeskripsi" required></trix-editor>
               </div>
               <div class="row">
                 <div class="col-12">
-                  <a href="/admin/artikel" class="btn btn-secondary">Batal</a>
+                  <a href="/admin/gallery" class="btn btn-secondary">Batal</a>
                   <input type="submit" value="Tambah Data" class="btn btn-success float-right">
                 </div>
               </div>
@@ -126,11 +118,8 @@
 
 <script type="text/javascript">
   $(function() {
-    $( "#WaktuPembuatan" ).datepicker("getDate");
+    $( "#GalleryTanggal" ).datepicker("getDate");
   } );
-
-  // var dateTypeVar = $('#WaktuPembuatan').datepicker("getDate");
-  // $( "#WaktuPembuatan" ).datepicker.formatDate('yyyy-mm-dd', dateTypeVar);
 </script>
 
 <script>
@@ -140,13 +129,13 @@
 </script>
 
 {{-- <script>
-  const ArtikelJudul =  document.querySelector('#ArtikelJudul');
-  const ArtikelSlug = document.querySelector('#ArtikelSlug');
+  const GalleryJudul =  document.querySelector('#GalleryJudul');
+  const GallerySlug = document.querySelector('#GallerySlug');
 
-  ArtikelJudul.addEventListener('change', function(){
-    fetch('/admin/artikel/checkSlug?ArtikelJudul=' + ArtikelJudul.value)
+  GalleryJudul.addEventListener('change', function(){
+    fetch('/admin/Gallery/checkSlug?GalleryJudul=' + GalleryJudul.value)
       .then(response => response.json())
-      .then(data => ArtikelSlug.value = data.ArtikelSlug)
+      .then(data => GallerySlug.value = data.GallerySlug)
   });
 </script> --}}
 

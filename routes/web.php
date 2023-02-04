@@ -48,6 +48,11 @@ Route::get('admin/admin/detail-admin/{id}', [AdminController::class, 'show'], fu
     return view('admin.detail-admin');
 })->name('admin/admin/detail-admin');
 
+Route::get('admin/admin/create-admin', [AdminController::class, 'create'], function () {
+    return view('admin.create-admin');
+})->name('admin/admin/create-admin');
+Route::post('admin/admin', [AdminController::class, 'store']);
+
 
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {
@@ -72,14 +77,23 @@ Route::get('admin/gallery', [GalleryController::class, 'index'], function () {
     return view('admin.gallery');
 })->name('admin/gallery');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('admin/gallery/detail-gallery/{id}', [GalleryController::class, 'show'], function () {
+    return view('admin.detail-gallery');
+})->name('admin/gallery/detail-gallery');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('admin/gallery/create-gallery', [GalleryController::class, 'create'], function () {
+    return view('gallery.create-gallery');
+})->name('admin/gallery/create-gallery');
+Route::post('admin/gallery', [GalleryController::class, 'store']);
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 // require __DIR__.'/auth.php';

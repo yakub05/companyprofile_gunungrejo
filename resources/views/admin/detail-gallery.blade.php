@@ -62,7 +62,7 @@
 
                 <strong><i class="fa fa-quote-left mr-1"></i> Deskripsi</strong>
 
-                <p class="text-muted">{{$gallery->GalleryDeskripsi}}</p>
+                <p class="text-muted">{{htmlspecialchars(trim(strip_tags($gallery->GalleryDeskripsi)))}}</p>
               </div>
               <!-- /.card-body -->
           </div>

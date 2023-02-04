@@ -1,17 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 use App\Models\Artikel;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use \CvieBrock\EloquentSluggable\Services\SlugService;
-// use Illuminate\Support\Str;
-
 
 class ArtikelController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $artikel = Artikel::get();
+        $keyword=$request->keyword;
+        // dd($keyword);
+        $artikel = Artikel::where('ArtikelJudul', 'LIKE', '%'.$keyword.'%')
+                            ->orWhere('ArtikelDeskripsi', 'LIKE', '%'.$keyword.'%')
+                            ->orWhere('WaktuPembuatan', 'LIKE', '%'.$keyword.'%')
+                            ->orWhere('Author', 'LIKE', '%'.$keyword.'%')
+                            ->paginate(5);
         return view('admin/artikel', ['artikelList' => $artikel]);
     }
 
@@ -52,9 +59,16 @@ class ArtikelController extends Controller
         if($request->file('ArtikelFoto')){
             $artikel['ArtikelFoto'] = $request->file('ArtikelFoto')->store('artikel-gambar');
         }
-
+        
         Artikel::create($artikel);
+
+        if($artikel){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Artikel Baru Berhasil Ditambahkan!');
+        }
+
         return redirect('/admin/artikel');
+        // return redirect('/admin/artikel')->with('success', 'Artikel Baru Berhasil Ditambahkan!');
     }
 
     // public function checkSlug(Request $request){

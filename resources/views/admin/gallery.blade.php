@@ -25,6 +25,22 @@
   <section class="content">
 
     <!-- Default box -->
+    <div class="mt-2">
+      @if(Session::has('status'))
+          <div class="alert alert-success" role="alert">
+            {{ Session::get('message') }}
+          </div>
+      @endif
+    </div>
+    <div class="my-3 d-flex align-items-end flex-column">
+      <form action="" method="get">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Masukkan Kata Kunci" name="keyword" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-secondary">Cari</button>
+        </div>
+      </form>
+    </div>
+
     <div class="card">
         <div class="card-header">
             <div class="row">
@@ -46,13 +62,10 @@
                     <th style="width: 15%">
                         Gambar
                     </th>
-                    <th style="width: 20%">
+                    <th style="width: 40%">
                         Judul
                     </th>
                     <th style="width: 40%">
-                        Deskripsi
-                    </th>
-                    <th style="width: 30%">
                     </th>
                 </tr>
             </thead>
@@ -60,9 +73,8 @@
                 @foreach ($galleryList as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->GalleryFoto }}</td>
+                        <td><img class="card-img" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}"></td>
                         <td>{{ $item->GalleryJudul }}</td>
-                        <td>{{ $item->GalleryDeskripsi }}</td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="gallery/detail-gallery/{{$item->id}}">
                                 <i class="fas fa-folder">
@@ -88,7 +100,9 @@
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
-
+    <div>
+      {{ $galleryList->withQueryString()->links() }}
+    </div>
   </section>
   <!-- /.content -->
 </div>

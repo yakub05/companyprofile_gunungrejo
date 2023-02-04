@@ -70,8 +70,8 @@
 
                 <strong><i class="fa fa-quote-left mr-1"></i> Deskripsi</strong>
 
-                <p class="text-muted">{{$artikel->ArtikelDeskripsi}}</p>
-
+                <p class="text-muted">{{htmlspecialchars(trim(strip_tags($artikel->ArtikelDeskripsi)))}}</p>
+                
                 <hr>
 
                 <strong><i class="fa fa-user mr-1"></i> Author</strong>

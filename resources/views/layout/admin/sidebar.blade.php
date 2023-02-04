@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">Admin Kedok Ombo</span>
     </a>
 
     <!-- Sidebar -->
@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
+      {{-- <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -28,7 +28,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
