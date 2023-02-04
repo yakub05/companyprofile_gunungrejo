@@ -68,13 +68,15 @@ Route::get('admin/admin/create-admin', [AdminController::class, 'create'], funct
 })->name('admin/admin/create-admin');
 Route::post('admin/admin', [AdminController::class, 'store']);
 
-//edit
+//edit data admin
 Route::get('admin/admin/edit-admin/{id}', [AdminController::class, 'edit'], function () {
     return view('admin.edit-admin');
 })->name('admin/admin/edit-admin');
 
 Route::put('admin/admin/{id}', [AdminController::class, 'update'])->name('update');
 
+//hapus data admin
+Route::get('admin/delete-admin/{id}', [AdminController::class, 'delete']);
 
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {

@@ -31,6 +31,21 @@ class AdminController extends Controller
         return view('admin/edit-admin', ['admin' => $admin]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $admin = Admin::findOrFail($id);
+
+        $admin->update($request->all());
+        return redirect('/admin/admin');
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $admin = Admin::findOrFail($id);
+        $admin->delete();
+        return back()->with('info', 'Data Berhasil Dihapus');
+    }
+
     public function create()
     {
         return view('admin/create-admin');
