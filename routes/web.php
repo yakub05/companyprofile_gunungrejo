@@ -81,8 +81,10 @@ Route::get('admin/artikel/detail-artikel/{id}', [ArtikelController::class, 'show
 Route::get('admin/artikel/create-artikel', [ArtikelController::class, 'create'], function () {
     return view('artikel.create-artikel');
 })->name('admin/artikel/create-artikel');
-Route::post('/admin/artikel', [ArtikelController::class, 'store']);
-// Route::get('/admin/artikel/create-artikel/checkSlug', [ArtikelController::class, 'checkSlug'])->middleware('auth');
+Route::post('admin/artikel', [ArtikelController::class, 'store']);
+// Route::get('/admin/artikel/checkSlug', [ArtikelController::class, 'checkSlug']);
+
+//Route::resource('admin/artikel', ArtikelController::class)->middleware('auth');
 
 
 //page gallery

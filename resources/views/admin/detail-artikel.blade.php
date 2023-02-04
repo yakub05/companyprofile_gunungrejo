@@ -33,11 +33,13 @@
           
             <div class="col-md-15">
               <!-- Profile Image -->
-                <div class="card-body box-profile">
+                <div class="card-body box-profile col-md-4">
                   <div class="text-center">
-                    <img class="card-img"
-                         src=""
-                         alt="Gambar Artikel">
+                    @if ($artikel->ArtikelFoto)
+                      <img class="card-img" src="{{ asset('storage/' . $artikel->ArtikelFoto)}}" alt="{{ $artikel->ArtikelJudul}}">
+                    @else
+                      <img src="{{ asset('storage/' . $artikel->ArtikelFoto) }}" alt="{{ $artikel->ArtikelJudul}}">
+                    @endif
                   </div>
                 </div>
                 <!-- /.card-body -->
