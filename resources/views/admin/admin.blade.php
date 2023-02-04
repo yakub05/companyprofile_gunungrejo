@@ -62,12 +62,12 @@
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="admin/edit-admin/{{$item->nama}}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="delete-admin/{{$item->id}}">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete

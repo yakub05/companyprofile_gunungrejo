@@ -17,4 +17,25 @@ class AdminController extends Controller
         $admin = Admin::get()->where('nama', $nama)->first();
         return view('admin/detail-admin', ['admin' => $admin]);
     }
+
+    public function edit($nama)
+    {
+        $admin = Admin::get()->where('nama', $nama)->first();
+        return view('admin/edit-admin', ['admin' => $admin]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $admin = Admin::findOrfail($id);
+
+        $admin->update($request->all());
+        return redirect('/admin/admin');
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $admin = Admin::findOrfail($id);
+        $admin->delete();
+        return back()->with('info', 'Data Berhasi di Hapus');
+    }
 }

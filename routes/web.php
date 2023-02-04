@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//halaman user
 
 Route::get('/', function () {
     return view('index');
@@ -29,6 +30,16 @@ Route::get('about', function () {
 Route::get('Portfolio', function () {
     return view('Portfolio');
 })->name('Portfolio');
+
+//register
+Route::get('registrasi', function () {
+    return view('layout.registrasi.registrasi');
+})->name('registrasi');
+
+//login
+Route::get('login', function () {
+    return view('layout.login.login');
+})->name('login');
 
 
 //web admin
@@ -48,6 +59,15 @@ Route::get('admin/admin/detail-admin/{id}', [AdminController::class, 'show'], fu
     return view('admin.detail-admin');
 })->name('admin/admin/detail-admin');
 
+//edit
+Route::get('admin/admin/edit-admin/{id}', [AdminController::class, 'edit'], function () {
+    return view('admin.edit-admin');
+})->name('admin/admin/edit-admin');
+
+Route::put('admin/admin/{id}', [AdminController::class, 'update'])->name('update');
+
+//hapus
+ Route::get('admin/delete-admin/{id}', [AdminController::class, 'delete']);
 
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {
