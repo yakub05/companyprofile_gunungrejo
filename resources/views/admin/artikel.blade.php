@@ -54,9 +54,6 @@
                     <th>
                         Tanggal Pembuatan
                     </th>
-                    <th style="width: 20%">
-                        Deskripsi
-                    </th>
                     <th style="width: 30%">
                     </th>
                 </tr>
@@ -65,10 +62,10 @@
                 @foreach ($artikelList as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->ArtikelFoto }}</td>
+                        <td><img class="card-img" src="{{ asset('storage/' . $item->ArtikelFoto)}}" alt="{{ $item->ArtikelJudul}}"></td>
+                        {{-- <td>{{ $item->ArtikelFoto }}</td> --}}
                         <td>{{ $item->ArtikelJudul }}</td>
                         <td>{{ $item->WaktuPembuatan }}</td>
-                        <td>{{ $item->ArtikelDeskripsi }}</td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="artikel/detail-artikel/{{$item->id}}">
                                 <i class="fas fa-folder">

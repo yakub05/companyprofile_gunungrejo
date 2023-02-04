@@ -15,7 +15,7 @@ class Artikel extends Model
         'ArtikelJudul',
         'ArtikelSlug',
         'WaktuPembuatan',
-        'Artikel Deskripsi',
+        'ArtikelDeskripsi',
         'Author',
     ];
 
