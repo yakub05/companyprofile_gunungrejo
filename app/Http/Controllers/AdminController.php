@@ -36,6 +36,6 @@ class AdminController extends Controller
     {
         $admin = Admin::findOrfail($id);
         $admin->delete();
-        return back()->with('info', 'Data Berhasi di Hapus');
+        return back()->with('info', 'Data Berhasil di Hapus');
     }
 }
