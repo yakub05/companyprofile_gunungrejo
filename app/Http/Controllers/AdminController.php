@@ -25,6 +25,12 @@ class AdminController extends Controller
         return view('admin/detail-admin', ['admin' => $admin]);
     }
 
+    public function edit($nama)
+    {
+        $admin = Admin::get()->where('nama', $nama)->first();
+        return view('admin/edit-admin', ['admin' => $admin]);
+    }
+
     public function create()
     {
         return view('admin/create-admin');
@@ -43,7 +49,7 @@ class AdminController extends Controller
         if($request->file('AdminFoto')){
             $admin['AdminFoto'] = $request->file('AdminFoto')->store('admin-gambar');
         }
-        
+
         Admin::create($admin);
 
         if($admin){

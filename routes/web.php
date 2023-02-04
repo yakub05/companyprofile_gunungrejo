@@ -68,6 +68,13 @@ Route::get('admin/admin/create-admin', [AdminController::class, 'create'], funct
 })->name('admin/admin/create-admin');
 Route::post('admin/admin', [AdminController::class, 'store']);
 
+//edit
+Route::get('admin/admin/edit-admin/{id}', [AdminController::class, 'edit'], function () {
+    return view('admin.edit-admin');
+})->name('admin/admin/edit-admin');
+
+Route::put('admin/admin/{id}', [AdminController::class, 'update'])->name('update');
+
 
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {
