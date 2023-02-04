@@ -31,6 +31,10 @@ Route::get('Portfolio', function () {
     return view('Portfolio');
 })->name('Portfolio');
 
+Route::get('blog', function () {
+    return view('blog');
+})->name('blog');
+
 //register
 Route::get('registrasi', function () {
     return view('layout.registrasi.registrasi');
