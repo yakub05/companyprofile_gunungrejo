@@ -13,8 +13,8 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="home">Home</a></li>
-            <li class="breadcrumb-item"><a href="admin">Admin</a></li>
+            <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
+            <li class="breadcrumb-item"><a href="/admin/admin">Admin</a></li>
             <li class="breadcrumb-item active">Edit</li>
           </ol>
         </div>
@@ -25,50 +25,46 @@
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
+        <form action="{{ route('update', $admin->id) }}" method="post">
+            @csrf
+            @method('PUT')
         <!-- Admin Box -->
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">Edit Data</h3>
           </div>
-          <div class="row">
-            <div class="col-md-4">
-              <!-- Profile Image -->
-                <div class="card-body box-profile">
-                  <div class="text-center">
-                    <img class="card-img img-circle"
-                         src=""
-                         alt="Foto Profil User">
-                  </div>
+
+            {{-- inputan admin --}}
+             <div class="card-body">
+                <div class="form-group">
+                  <label for="inputName"><i class="fas fa-user mr-1"></i>Nama</label>
+                  <input type="text" id="inputName" class="form-control" value="{{$admin->nama}}" name="nama">
                 </div>
-                <!-- /.card-body -->
 
-              <!-- /.card -->
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <strong><i class="fas fa-book mr-1"></i>Nama</strong>
+                <div class="form-group">
+                    <label for="inputEmail"><i class="fa fa-envelope mr-1"></i>Email</label>
+                    <input type="email" id="inputEmail" class="form-control" value="{{$admin->email}}" name="email">
+                </div>
 
-              <p class="text-muted">
-                {{$admin->nama}}
-              </p>
+                <div class="form-group">
+                    <label for="inputNumber"><i class="fa fa-phone mr-1"></i>No Telp</label>
+                    <input type="text" id="input" class="form-control" value="{{$admin->NoTelp}}" name="NoTelp">
+                </div>
 
-              <hr>
+                <div class="form-group">
+                    <label for="inputFoto"><i class="fas fa-image mr-1"></i>Foto Admin</label>
+                    <input type="file" id="input" class="form-control" value="{{$admin->AdminFoto}}" name="AdminFoto">
+                </div>
+                <div class="mb-15">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                  </div>
+             </div>
 
-              <strong><i class="fas fa-map-marker-alt mr-1"></i> Email</strong>
-
-              <p class="text-muted">{{$admin->email}}</p>
-
-              <hr>
-
-              <strong><i class="fas fa-pencil-alt mr-1"></i> Nomor Telepon</strong>
-
-              <p class="text-muted">{{$admin->NoTelp}}</p>
-            </div>
-            <!-- /.card-body -->
           </div>
         </div>
         <!-- /.card -->
       <!-- /.row -->
+    </form>
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->

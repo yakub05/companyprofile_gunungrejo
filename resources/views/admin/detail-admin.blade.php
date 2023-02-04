@@ -62,6 +62,10 @@
               <strong><i class="fa fa-phone mr-1"></i> Nomor Telepon</strong>
 
               <p class="text-muted">{{$admin->NoTelp}}</p>
+
+              <div class="col card-header text-right">
+                <button type="button" class="btn btn-secondary" href="/admin/admin">Kembali </button>
+            </div>
             </div>
             <!-- /.card-body -->
           </div>

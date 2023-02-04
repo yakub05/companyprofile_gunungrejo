@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//halaman user
 
 Route::get('/', function () {
     return view('index');
@@ -29,6 +30,20 @@ Route::get('about', function () {
 Route::get('Portfolio', function () {
     return view('Portfolio');
 })->name('Portfolio');
+
+Route::get('blog', function () {
+    return view('blog');
+})->name('blog');
+
+//register
+Route::get('registrasi', function () {
+    return view('layout.registrasi.registrasi');
+})->name('registrasi');
+
+//login
+Route::get('login', function () {
+    return view('layout.login.login');
+})->name('login');
 
 
 //web admin

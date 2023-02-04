@@ -9,11 +9,11 @@
     </div>
   </section><!-- End Hero -->
 
-  <main id="main">
+  {{-- <main id="main">
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-      <div class="container">
+      <div class="container"> --}}
 
         {{-- <div class="row justify-content-end">
           <div class="col-lg-11">
@@ -55,7 +55,7 @@
           </div>
         </div> --}}
 
-        <div class="row">
+        {{-- <div class="row">
 
           <div class="col-lg-6 video-box align-self-baseline position-relative">
             <img src="assets/User/img/about.jpg" class="img-fluid" alt="">
@@ -81,13 +81,13 @@
             </p>
           </div>
 
-        </div>
-
+        </div> --}}
+{{--
       </div>
-    </section><!-- End About Section -->
+    </section><!-- End About Section --> --}}
 
     <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
+    {{-- <section id="cta" class="cta">
       <div class="container" data-aos="fade-in">
 
         <div class="text-center">
@@ -97,7 +97,7 @@
         </div>
 
       </div>
-    </section><!-- End Cta Section -->
+    </section><!-- End Cta Section --> --}}
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services ">
