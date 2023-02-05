@@ -57,6 +57,12 @@
                   <p>Gallery</p>
                 </a>
           </li>
+          <li class="nav-item">
+            <a href="/admin/gallery" class="nav-link">
+              <i class="fas fa-sign-out-alt"></i>
+              <p> Log Out</p>
+            </a>
+      </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
