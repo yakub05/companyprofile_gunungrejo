@@ -13,7 +13,6 @@
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-      <div class="container"> --}}
 
         {{-- <div class="row justify-content-end">
           <div class="col-lg-11">
@@ -28,26 +27,13 @@
               </div>
 
               <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div class="count-box py-5">
-                  <i class="bi bi-journal-richtext"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="85" class="purecounter">0</span>
-                  <p>Projects</p>
-                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
               </div>
 
               <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box pb-5 pt-0 pt-lg-5">
-                  <i class="bi bi-clock"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="27" class="purecounter">0</span>
-                  <p>Years of experience</p>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
-                <div class="count-box pb-5 pt-0 pt-lg-5">
-                  <i class="bi bi-award"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="22" class="purecounter">0</span>
-                  <p>Awards</p>
                 </div>
               </div>
 
@@ -81,14 +67,8 @@
             </p>
           </div>
 
-        </div> --}}
-{{--
       </div>
-    </section><!-- End About Section --> --}}
 
-    <!-- ======= Cta Section ======= -->
-    {{-- <section id="cta" class="cta">
-      <div class="container" data-aos="fade-in">
 
         <div class="text-center">
           <h3>Call To Action</h3>
