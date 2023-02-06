@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,10 +72,11 @@ Route::get('admin/admin/edit-admin/{id}', [AdminController::class, 'edit'], func
     return view('admin.edit-admin');
 })->name('admin/admin/edit-admin');
 
-Route::put('admin/admin/{id}', [AdminController::class, 'update'])->name('update');
+Route::put('admin/admin/{id}', [AdminController::class, 'updateadmin'])->name('updateadmin');
 
 //hapus data admin
 Route::get('admin/delete-admin/{id}', [AdminController::class, 'delete']);
+
 
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {
@@ -91,12 +91,24 @@ Route::get('admin/artikel/create-artikel', [ArtikelController::class, 'create'],
     return view('artikel.create-artikel');
 })->name('admin/artikel/create-artikel');
 Route::post('admin/artikel', [ArtikelController::class, 'store']);
-// Route::get('/admin/artikel/checkSlug', [ArtikelController::class, 'checkSlug']);
 
-//Route::resource('admin/artikel', ArtikelController::class)->middleware('auth');
+//edit data artikel
+Route::get('admin/artikel/edit-artikel/{id}', [ArtikelController::class, 'edit'], function () {
+    return view('artikel.edit-artikel');
+})->name('admin/artikel/edit-artikel');
+
+Route::put('admin/artikel/{id}', [ArtikelController::class, 'updateartikel'])->name('updateartikel');
+
+//hapus data artikel
+Route::get('admin/delete-artikel/{id}', [ArtikelController::class, 'delete']);
+
+// slug
+// Route::get('/admin/artikel/checkSlug', [GalleryController::class, 'checkSlug']);
+
+//Route::resource('admin/artikel', GalleryController::class)->middleware('auth');
 
 
-//page gallery
+// //page gallery
 Route::get('admin/gallery', [GalleryController::class, 'index'], function () {
     return view('admin.gallery');
 })->name('admin/gallery');
@@ -109,6 +121,17 @@ Route::get('admin/gallery/create-gallery', [GalleryController::class, 'create'],
     return view('gallery.create-gallery');
 })->name('admin/gallery/create-gallery');
 Route::post('admin/gallery', [GalleryController::class, 'store']);
+
+//edit data gallery
+Route::get('admin/gallery/edit-gallery/{id}', [GalleryController::class, 'edit'], function () {
+    return view('gallery.edit-gallery');
+})->name('admin/gallery/edit-gallery');
+
+Route::put('admin/gallery/{id}', [GalleryController::class, 'updategallery'])->name('updategallery');
+
+//hapus data gallery
+Route::get('admin/delete-gallery/{id}', [GalleryController::class, 'delete']);
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

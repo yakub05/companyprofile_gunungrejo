@@ -23,7 +23,8 @@ class Artikel extends Model
     {
         return [
             'ArtikelSlug' => [
-                'source' => 'ArtikelJudul'
+                'source' => 'ArtikelJudul',
+                'onUpdate' => true,
             ]
         ];
     }

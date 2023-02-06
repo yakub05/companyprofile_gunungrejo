@@ -85,17 +85,17 @@
                         <td>{{ $item->ArtikelJudul }}</td>
                         <td>{{ $item->WaktuPembuatan }}</td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="artikel/detail-artikel/{{$item->id}}">
+                            <a class="btn btn-primary btn-sm" href="artikel/detail-artikel/{{ $item->id }}">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="artikel/edit-artikel/{{ $item->id }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="delete-artikel/{{ $item->id }}">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete

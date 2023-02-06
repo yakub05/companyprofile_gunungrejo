@@ -19,23 +19,46 @@ class AdminController extends Controller
         return view('admin/admin', ['adminList' => $admin]);
     }
 
-    public function show($nama)
+    public function show($id)
     {
-        $admin = Admin::get()->where('nama', $nama)->first();
+        $admin = Admin::findOrFail($id);
         return view('admin/detail-admin', ['admin' => $admin]);
     }
 
-    public function edit($nama)
+    public function edit($id)
     {
-        $admin = Admin::get()->where('nama', $nama)->first();
+        $admin = Admin::get()->where('id', $id)->first();
         return view('admin/edit-admin', ['admin' => $admin]);
     }
 
-    public function update(Request $request, $id)
+    public function updateadmin(Request $request, Admin $admin, $id)
     {
         $admin = Admin::findOrFail($id);
 
-        $admin->update($request->all());
+        $rules = $request->validate([
+            'AdminFoto' => 'image|file',
+            'nama' => 'required',
+            'email' => 'required|email',
+            'NoTelp' => 'required|numeric',
+            'password' => 'required'
+        ]);
+
+        if($request->file('AdminFoto')){
+            $rules['AdminFoto'] = $request->file('AdminFoto')->store('admin-gambar');
+        }
+        
+        if($request->email != $admin->email){
+            $rules['email'] = 'required|email';
+        }
+
+        Admin::where('id', $admin->id)
+                ->update($rules);
+
+        if($rules){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Perubahan Berhasil : Data Admin Berhasil Diubah!');
+        }
+
         return redirect('/admin/admin');
     }
 
@@ -69,7 +92,7 @@ class AdminController extends Controller
 
         if($admin){
             Session::flash('status', 'success');
-            Session::flash('message', 'Admin Baru Berhasil Ditambahkan!');
+            Session::flash('message', 'Penambahan Berhasil : Admin Baru Berhasil Ditambahkan!');
         }
 
         return redirect('/admin/admin');

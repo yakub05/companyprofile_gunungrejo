@@ -39,7 +39,7 @@
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/admin/home">Home</a></li>
             <li class="breadcrumb-item"><a href="/admin/artikel">Artikel</a></li>
-            <li class="breadcrumb-item active">Tambah Artikel</li>
+            <li class="breadcrumb-item active">Edit Artikel</li>
           </ol>
         </div>
       </div>
@@ -48,15 +48,6 @@
 
   <!-- Main content -->
   <section class="content">
-    @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-    @endif
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -67,32 +58,36 @@
         </div>
     @endif
       <div class="col-md-20">
-        <form action="/admin/artikel" method="post" enctype="multipart/form-data" class="mb-5">
+        <form action="{{ route('updateartikel', $artikel->id) }}" method="post" enctype="multipart/form-data" class="mb-5">
           @csrf
+          @method('PUT')
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Form Tambah Artikel</h3>
+              <h3 class="card-title">Form Edit Artikel</h3>
             </div>
             <div class="card-body">
               <div class="form-group">
                 <div class="mb-3">
-                  <label for="ArtikelFoto" class="form-label">Gambar Artikel</label>
-                  <input class="form-control" type="file" id="ArtikelFoto" name="ArtikelFoto" value="{{ old('ArtikelFoto') }}">
+                  <label for="ArtikelFoto" class="form-label">Foto Artikel</label>
+                  <input class="form-control" type="file" id="ArtikelFoto" name="ArtikelFoto" value="{{ $artikel->ArtikelFoto }}">
+                  @error('ArtikelFoto')
+                    <p class="text-danger">{{ $message }}</p>
+                  @enderror
                 </div> 
               </div>
               <div class="form-group">
                 <label for="ArtikelJudul" class="form-label">Judul Artikel</label>
-                <input type="text" id="ArtikelJudul" class="form-control" name="ArtikelJudul" value="{{ old('ArtikelJudul') }}" required>
+                <input type="text" id="ArtikelJudul" class="form-control" name="ArtikelJudul" value="{{ $artikel->ArtikelJudul }}" required>
               </div>
               {{-- <div class="form-group">
                 <label for="ArtikelSlug" class="form-label">Slug</label>
-                <input type="text" id="ArtikelSlug" class="form-control" name="ArtikelSlug" value="{{ old('ArtikelSlug') }}">
+                <input type="text" id="ArtikelSlug" class="form-control" name="ArtikelSlug" value="{{ $artikel->ArtikelSlug }}">
               </div> --}}
               <div class="row form-group">
                 <label for="WaktuPembuatan" class="form-label">Tanggal Pembuatan</label>
                 <div class="col-sm-5">
                   <div class="input-group date" data-provide="datepicker" data-date-format='yyyy-mm-dd'>
-                    <input type="text" class="form-control" id="WaktuPembuatan" name="WaktuPembuatan" value="{{ old('WaktuPembuatan') }}" required>
+                    <input type="text" class="form-control" id="WaktuPembuatan" name="WaktuPembuatan" value="{{ $artikel->WaktuPembuatan }}" required>
                     <span class="input-group-append">
                       <span class="input-group-text bg-white">
                         <i class="fas fa-calendar"></i>
@@ -106,11 +101,11 @@
               </div>
               <div class="form-group">
                 <label for="Author" class="form-label">Author</label>
-                <input type="text" id="Author" class="form-control" name="Author" value="{{ old('Author') }}" required>
+                <input type="text" id="Author" class="form-control" name="Author" value="{{ $artikel->Author, old('Author') }}" required>
               </div>
               <div class="form-group">
                 <label for="ArtikelDeskripsi" class="form-label">Deskripsi Artikel</label>
-                <input id="ArtikelDeskripsi" type="hidden" name="ArtikelDeskripsi" value="{{ old('ArtikelDeskripsi') }}">
+                <input id="ArtikelDeskripsi" type="hidden" name="ArtikelDeskripsi" value="{{ $artikel->ArtikelDeskripsi, old('ArtikelDeskripsi') }}">
                 <trix-editor input="ArtikelDeskripsi" required></trix-editor>
                 @error('ArtikelDeskripsi')
                   <p class="text-danger">{{ $message }}</p>
@@ -119,7 +114,7 @@
               <div class="row">
                 <div class="col-12">
                   <a href="/admin/artikel" class="btn btn-secondary">Batal</a>
-                  <input type="submit" value="Tambah Data" class="btn btn-success float-right">
+                  <input type="submit" value="Simpan Perubahan" class="btn btn-success float-right">
                 </div>
               </div>
             </div>
@@ -132,32 +127,5 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-<script type="text/javascript">
-  $(function() {
-    $( "#WaktuPembuatan" ).datepicker("getDate");
-  } );
-
-  // var dateTypeVar = $('#WaktuPembuatan').datepicker("getDate");
-  // $( "#WaktuPembuatan" ).datepicker.formatDate('yyyy-mm-dd', dateTypeVar);
-</script>
-
-<script>
-  document.addEventListener('trix-file-accept', function(e){
-    e.preventDefault();
-  });
-</script>
-
-{{-- slug --}}
-{{-- <script>
-const ArtikelJudul =  document.querySelector('#ArtikelJudul');
-    const ArtikelSlug = document.querySelector('#ArtikelSlug');
-
-    ArtikelJudul.addEventListener('change', function(){
-      fetch('/admin/artikel/checkSlug?ArtikelJudul=' + ArtikelJudul.value)
-        .then(response => response.json())
-        .then(data => ArtikelSlug.value = data.ArtikelSlug)
-    }); 
-</script> --}}
 
 @endsection
