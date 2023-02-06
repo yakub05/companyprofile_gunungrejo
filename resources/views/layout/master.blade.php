@@ -42,6 +42,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
+        {{-- <a href="https://ub.ac.id/id/"><img src="assets/User/img/logo/kedokombo.png" style="width:50px;height:50px;"></a> --}}
         <h1 class="text-light"><a href="{{ URL::route('index') }}">SIKOMBO</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->

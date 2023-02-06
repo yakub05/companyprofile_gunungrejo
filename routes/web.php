@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -78,6 +79,10 @@ Route::put('admin/admin/{id}', [AdminController::class, 'update'])->name('update
 //hapus data admin
 Route::get('admin/delete-admin/{id}', [AdminController::class, 'delete']);
 
+//Login
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login/login', [LoginController::class, 'login']);
+
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {
     return view('admin.artikel');
@@ -121,3 +126,7 @@ Route::post('admin/gallery', [GalleryController::class, 'store']);
 // });
 
 // require __DIR__.'/auth.php';
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
