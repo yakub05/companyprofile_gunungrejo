@@ -8,6 +8,9 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtikelUserController;
 use App\Http\Controllers\GalleryUserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +58,9 @@ Route::get('login', function () {
     return view('layout.login.login');
 })->name('login');
 
+//Login
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login/login', [LoginController::class, 'login']);
 
 //web admin
 
@@ -87,7 +93,6 @@ Route::put('admin/admin/{id}', [AdminController::class, 'updateadmin'])->name('u
 
 //hapus data admin
 Route::get('admin/delete-admin/{id}', [AdminController::class, 'delete']);
-
 
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {
@@ -155,3 +160,7 @@ Route::get('admin/delete-gallery/{id}', [GalleryController::class, 'delete']);
 // });
 
 // require __DIR__.'/auth.php';
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
