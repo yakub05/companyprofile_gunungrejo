@@ -22,7 +22,8 @@ class Gallery extends Model
     {
         return [
             'GallerySlug' => [
-                'source' => 'GalleryJudul'
+                'source' => 'GalleryJudul',
+                'onUpdate' => true,
             ]
         ];
     }

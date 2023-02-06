@@ -73,15 +73,15 @@
                 @foreach ($adminList as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td><img class="card-img" src="{{ asset('storage/' . $item->AdminFoto)}}" alt="{{ $item->nama}}"></td>
+                        <td><img class="card-img" src="{{ asset('storage/' . $item->AdminFoto)}}" alt="{{ $item->nama }}"></td>
                         <td>{{ $item->nama }}</td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="admin/detail-admin/{{$item->nama}}">
+                            <a class="btn btn-primary btn-sm" href="admin/detail-admin/{{ $item->id }}">
                                 <i class="fas fa-folder">
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="admin/edit-admin/{{$item->nama}}">
+                            <a class="btn btn-info btn-sm" href="admin/edit-admin/{{ $item->id }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit

@@ -81,12 +81,12 @@
                                 </i>
                                 View
                             </a>
-                            <a class="btn btn-info btn-sm" href="#">
+                            <a class="btn btn-info btn-sm" href="gallery/edit-gallery/{{ $item->id }}">
                                 <i class="fas fa-pencil-alt">
                                 </i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="#">
+                            <a class="btn btn-danger btn-sm" href="delete-gallery/{{$item->id}}">
                                 <i class="fas fa-trash">
                                 </i>
                                 Delete

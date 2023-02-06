@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use \CvieBrock\EloquentSluggable\Services\SlugService;
+use CvieBrock\EloquentSluggable\Services\SlugService;
 
 class ArtikelController extends Controller
 {
@@ -24,8 +24,58 @@ class ArtikelController extends Controller
 
     public function show($id)
     {
-        $artikel = artikel::findOrFail($id);
+        $artikel = Artikel::findOrFail($id);
         return view('admin/detail-artikel', ['artikel' => $artikel]);
+    }
+
+    public function edit($id)
+    {
+        $artikel = Artikel::get()->where('id', $id)->first();
+        return view('admin/edit-artikel', ['artikel' => $artikel]);
+    }
+
+    public function updateartikel(Request $request, Artikel $artikel, $id)
+    {
+        $artikel = Artikel::findOrFail($id);
+
+        $rules = $request->validate([
+            'ArtikelFoto' => 'image|file',
+            'ArtikelJudul' => 'required|max:255',
+            'WaktuPembuatan' => 'required',
+            'ArtikelDeskripsi' => 'required',
+            'Author' => 'required'
+        ]);
+
+        if($request->file('ArtikelFoto')){
+            $rules['ArtikelFoto'] = $request->file('ArtikelFoto')->store('artikel-gambar');
+        }
+
+        // if($request->$ArtikelJudul)
+        // $post->update(['ArtikelJudul' => $request->ArtikelJudul]);
+
+        Artikel::where('id', $artikel->id)
+                ->update($rules);
+
+        if($rules){
+            Session::flash('status', 'success');
+            Session::flash('message', 'Perubahan Berhasil : Data Artikel Berhasil Diubah!');
+        }
+
+        return redirect('/admin/artikel');
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $artikel = Artikel::findOrFail($id);
+        $artikel->delete();
+        // return back()->with('info', 'Data Berhasil Dihapus');
+
+        if($artikel){
+            Session::flash('status', 'warning');
+            Session::flash('message', 'Data Berhasil Dihapus!');
+        }
+
+        return redirect('/admin/artikel');
     }
 
     public function create()
@@ -50,7 +100,7 @@ class ArtikelController extends Controller
         $artikel = $request->validate([
             'ArtikelFoto' => 'image|file',
             'ArtikelJudul' => 'required|max:255',
-            // 'ArtikelSlug' => 'required',
+            // 'ArtikelSlug' => 'required|unique',
             'WaktuPembuatan' => 'required',
             'ArtikelDeskripsi' => 'required',
             'Author' => 'required'
@@ -68,13 +118,10 @@ class ArtikelController extends Controller
         }
 
         return redirect('/admin/artikel');
-        // return redirect('/admin/artikel')->with('success', 'Artikel Baru Berhasil Ditambahkan!');
     }
 
     // public function checkSlug(Request $request){
-    //     $ArtikelSlug = SlugService::checkSlug(Artikel::class, 'ArtikelSlug', $request->ArtikelJudul);
+    //     $ArtikelSlug = SlugService::createSlug(Artikel::class, 'ArtikelSlug', $request->ArtikelJudul);
     //     return response()->json(['ArtikelSlug'->$ArtikelSlug]);
     // }
-
-
 }
