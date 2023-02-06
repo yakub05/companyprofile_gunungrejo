@@ -69,7 +69,10 @@
               <div class="form-group">
                 <div class="mb-3">
                   <label for="AdminFoto" class="form-label">Gambar Admin</label>
-                  <input class="form-control" type="file" id="AdminFoto" name="AdminFoto" value="{{ $admin->AdminFoto, old('AdminFoto') }}">
+                  <div>
+                    <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" value="{{ old('AdminFoto') }}" src="{{ asset('storage/' . $admin->AdminFoto)}}">
+                  </div>
+                  <input class="form-control" type="file" id="AdminFoto" name="AdminFoto" value="{{ $admin->AdminFoto }}" onchange="previewImage()">
                   @error('AdminFoto')
                     <p class="text-danger">{{ $message }}</p>
                   @enderror
@@ -117,5 +120,21 @@
 </div>
 <!-- /.content-wrapper -->
 
+<script>
+  //preview image
+function previewImage(){
+const image = document.querySelector('#AdminFoto');
+const imgPreview = document.querySelector('.img-preview');
+
+imgPreview.style.display = 'block';
+
+const oFReader = new FileReader();
+oFReader.readAsDataURL(image.files[0]);
+
+oFReader.onload = function(oFREvent){
+  imgPreview.src = oFREvent.target.result;
+}
+}
+</script>
 
 @endsection

@@ -68,11 +68,12 @@
               <div class="form-group">
                 <div class="mb-3">
                   <label for="AdminFoto" class="form-label">Gambar Admin</label>
-                  <input class="form-control" type="file" id="AdminFoto" name="AdminFoto" value="{{ old('AdminFoto') }}">
+                  <img class="img-preview mb-3" height="30%" width="30%">
+                  <input class="form-control" type="file" id="AdminFoto" name="AdminFoto" value="{{ old('AdminFoto') }}" onchange="previewImage()">
                   @error('AdminFoto')
                     <p class="text-danger">{{ $message }}</p>
                   @enderror
-                </div> 
+                </div>
               </div>
               <div class="form-group">
                 <label for="nama" class="form-label">Nama Admin</label>
@@ -129,17 +130,23 @@
   document.addEventListener('trix-file-accept', function(e){
     e.preventDefault();
   })
+
+  //preview image
+  function previewImage(){
+    const image = document.querySelector('#AdminFoto');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
+    }
+  }
+
 </script>
 
-{{-- <script>
-  const nama =  document.querySelector('#nama');
-  const AdminSlug = document.querySelector('#AdminSlug');
-
-  nama.addEventListener('change', function(){
-    fetch('/admin/Admin/checkSlug?nama=' + nama.value)
-      .then(response => response.json())
-      .then(data => AdminSlug.value = data.AdminSlug)
-  });
-</script> --}}
 
 @endsection

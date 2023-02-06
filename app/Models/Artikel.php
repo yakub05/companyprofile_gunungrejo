@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Artikel;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Artikel extends Model
 {
@@ -27,5 +29,11 @@ class Artikel extends Model
                 'onUpdate' => true,
             ]
         ];
+    }
+
+    const EXCERPT_LENGTH = 100;
+    public function excerpt()
+    {
+        return Str::limit($this->ArtikelDeskripsi, Artikel::EXCERPT_LENGTH);
     }
 }

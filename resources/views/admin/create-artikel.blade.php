@@ -77,7 +77,8 @@
               <div class="form-group">
                 <div class="mb-3">
                   <label for="ArtikelFoto" class="form-label">Gambar Artikel</label>
-                  <input class="form-control" type="file" id="ArtikelFoto" name="ArtikelFoto" value="{{ old('ArtikelFoto') }}">
+                  <img class="img-preview mb-3" height="30%" width="30%">
+                  <input class="form-control" type="file" id="ArtikelFoto" name="ArtikelFoto" value="{{ old('ArtikelFoto') }}" onchange="previewImage()">
                 </div> 
               </div>
               <div class="form-group">
@@ -146,6 +147,21 @@
   document.addEventListener('trix-file-accept', function(e){
     e.preventDefault();
   });
+
+  //preview image
+  function previewImage(){
+    const image = document.querySelector('#ArtikelFoto');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(image.files[0]);
+
+    oFReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
+    }
+  }
 </script>
 
 {{-- slug --}}

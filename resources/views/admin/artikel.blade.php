@@ -42,9 +42,7 @@
         </div>
       </form>
     </div>
-        
-      {{-- </div> --}}
-    {{-- </div> --}}
+
     <div class="card">
       <div class="card-header">
         <div class="row">

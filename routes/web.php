@@ -5,6 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ArtikelUserController;
+use App\Http\Controllers\GalleryUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +33,15 @@ Route::get('Portfolio', function () {
     return view('Portfolio');
 })->name('Portfolio');
 
+Route::get('Portfolio', [GalleryUserController::class, 'index'], function () {
+    return view('Portfolio');
+})->name('Portfolio');
+
 Route::get('blog', function () {
+    return view('blog');
+})->name('blog');
+
+Route::get('blog', [ArtikelUserController::class, 'index'], function () {
     return view('blog');
 })->name('blog');
 

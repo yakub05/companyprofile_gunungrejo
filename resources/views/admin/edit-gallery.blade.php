@@ -69,7 +69,10 @@
               <div class="form-group">
                 <div class="mb-3">
                   <label for="GalleryFoto" class="form-label">Foto Gallery</label>
-                  <input class="form-control" type="file" id="GalleryFoto" name="GalleryFoto" value="{{ $gallery->GalleryFoto }}">
+                  <div>
+                    <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" value="{{ old('GalleryFoto') }}" src="{{ asset('storage/' . $gallery->GalleryFoto)}}">
+                  </div>
+                  <input class="form-control" type="file" id="GalleryFoto" name="GalleryFoto" value="{{ $gallery->GalleryFoto }}" onchange="previewImage()">
                   @error('GalleryFoto')
                     <p class="text-danger">{{ $message }}</p>
                   @enderror
@@ -97,7 +100,7 @@
               </div>
               <div class="form-group">
                 <label for="GalleryDeskripsi" class="form-label">Deskripsi Gallery</label>
-                <input id="GalleryDeskripsi" type="hidden" name="GalleryDeskripsi" value="{{ $gallery->GalleryDeskripsi, old('GalleryDeskripsi') }}">
+                <input id="GalleryDeskripsi" type="hidden" name="GalleryDeskripsi" value="{{ $gallery->GalleryDeskripsi, old('GalleryDeskripsi') }}" >
                 <trix-editor input="GalleryDeskripsi" required></trix-editor>
                 @error('GalleryDeskripsi')
                   <p class="text-danger">{{ $message }}</p>
@@ -119,5 +122,22 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<script>
+    //preview image
+  function previewImage(){
+  const image = document.querySelector('#GalleryFoto');
+  const imgPreview = document.querySelector('.img-preview');
+
+  imgPreview.style.display = 'block';
+
+  const oFReader = new FileReader();
+  oFReader.readAsDataURL(image.files[0]);
+
+  oFReader.onload = function(oFREvent){
+    imgPreview.src = oFREvent.target.result;
+  }
+  }
+</script>
 
 @endsection

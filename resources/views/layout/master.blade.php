@@ -49,10 +49,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="active" href="{{ URL::route('index') }}">Home</a></li>
-          <li><a href="{{ URL::route('about') }}">About</a></li>
-          <li><a href="{{ URL::route('blog')}}">Blog</a></li>
-          <li><a href="{{ URL::route('Portfolio') }}">Portofolio</a></li>
+          <li><a class="{{ request()->is('/') ? 'active' : '' }}" href="{{ URL::route('index') }}">Home</a></li>
+          <li><a class="{{ request()->is('about') ? 'active' : '' }}" href="{{ URL::route('about') }}">About</a></li>
+          <li><a class="{{ request()->is('blog') ? 'active' : '' }}" href="{{ URL::route('blog')}}">Blog</a></li>
+          <li><a class="{{ request()->is('Portfolio') ? 'active' : '' }}" href="{{ URL::route('Portfolio') }}">Gallery</a></li>
 {{--
           <li><a class="getstarted" href="about.html">Get Started</a></li> --}}
         </ul>
@@ -77,9 +77,9 @@
             <h4>Link Halaman</h4>
             <ul>
               <li><a href="{{ URL::route('index') }}">Home</a></li>
-              <li><a href="{{ URL::route('about') }}">About</a></li>
-              <li><a href="{{ URL::route('blog')}}">Blog</a></li>
-              <li><a href="{{ URL::route('Portfolio') }}">Portofoloio</a></li>
+              <li><a  href="{{ URL::route('about') }}t">About</a></li>
+              <li><a  href="{{ URL::route('blog') }}">Blog</a></li>
+              <li><a  href="{{ URL::route('Portfolio') }}">Portfolio</a></li>
             </ul>
           </div>
 
@@ -113,7 +113,7 @@
 
     <div class="container">
       <div class="copyright">
-        <strong>Copyright &copy; 2023 <a>Pemerintah Desa Gunungrejo - Kecamatan Singosari</a>.</strong>
+        <strong>Copyright &copy; 2023 <a>Pemerintah Desa Gunungrejo - Kecamatan Singosari</a></strong>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
