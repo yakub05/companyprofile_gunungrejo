@@ -47,7 +47,7 @@ class AdminController extends Controller
         if($request->file('AdminFoto')){
             $rules['AdminFoto'] = $request->file('AdminFoto')->store('admin-gambar');
         }
-        
+
         if($request->email != $admin->email){
             $rules['email'] = 'required|email';
         }
@@ -91,7 +91,13 @@ class AdminController extends Controller
             $admin['AdminFoto'] = $request->file('AdminFoto')->store('admin-gambar');
         }
 
-        Admin::create($admin);
+        Admin::create([
+            'AdminFoto' => $admin['AdminFoto'],
+            'nama' => $admin['nama'],
+            'email' => $admin['email'],
+            'NoTelp' => $admin['NoTelp'],
+            'password' => bcrypt ($admin['password']),
+        ]);
 
         if($admin){
             Session::flash('status', 'success');
