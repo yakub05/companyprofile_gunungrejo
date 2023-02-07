@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
 
 class LoginController extends Controller
 {
@@ -14,16 +17,34 @@ class LoginController extends Controller
 
     function login(Request $request)
     {
-        // dd('test');
         $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
-        $infologin =  [
-            'email'=>$request->email,
-            'password'=>$request->password
-        ];
-        return view('layout/admin/panel');
+        if(!$request){
+            return redirect('/login');
+        }
+        $user = Admin::where('email', $request->email)->first();
+        // dd($user);
 
+        if(!$user){
+            return redirect('/login');
+        }
+        if(Auth::Attempt([
+            'email'     => $request->email,
+            'password'  => $request->password,
+        ])){
+            // cara 1 toast
+            return redirect('/admin/home');
+        }
+        return redirect('/login');
+
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
     }
 }

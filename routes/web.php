@@ -1,15 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ArtikelUserController;
 use App\Http\Controllers\GalleryUserController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -48,10 +49,11 @@ Route::get('blog', [ArtikelUserController::class, 'index'], function () {
     return view('blog');
 })->name('blog');
 
-//register
-Route::get('registrasi', function () {
-    return view('layout.registrasi.registrasi');
-})->name('registrasi');
+Route::get('detail_blog', function () {
+    return view('detail_blog');
+})->name('detail_blog');
+
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 //login
 Route::get('login', function () {
@@ -63,12 +65,13 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login/login', [LoginController::class, 'login']);
 
 //web admin
+Route::middleware(['LoginMiddleware'])->group(function () {
+
 
 //page home
 Route::get('admin/home', function () {
     return view('admin.home');
 })->name('admin/home');
-
 
 //page admin
 Route::get('admin/admin', [AdminController::class, 'index'], function () {
@@ -147,8 +150,7 @@ Route::put('admin/gallery/{id}', [GalleryController::class, 'updategallery'])->n
 
 //hapus data gallery
 Route::get('admin/delete-gallery/{id}', [GalleryController::class, 'delete']);
-
-
+});
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
