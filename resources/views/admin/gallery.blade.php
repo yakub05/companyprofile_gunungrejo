@@ -65,7 +65,7 @@
                     <th style="width: 40%">
                         Judul
                     </th>
-                    <th style="width: 40%">
+                    <th style="width: 30%">
                     </th>
                 </tr>
             </thead>
@@ -73,7 +73,13 @@
                 @foreach ($galleryList as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td><img class="card-img" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}"></td>
+                        <td>
+                          @if ($item->GalleryFoto != '')
+                          <img class="card-img" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}">
+                        @else
+                          <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $item->GalleryJudul}}">
+                        @endif
+                        </td>
                         <td>{{ $item->GalleryJudul }}</td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="gallery/detail-gallery/{{$item->id}}">

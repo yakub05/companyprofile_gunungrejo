@@ -31,13 +31,15 @@
             <h3 class="card-title">Detail</h3>
           </div>
           
-            <div class="col-md-15">
+            <div class="col-md-5">
               <!-- Profile Image -->
-                <div class="card-body box-profile">
-                  <div class="text-center">
-                    <img class="card-img"
-                         src=""
-                         alt="Gambar">
+                <div class="card-body box-profile" >
+                  <div class="text-center" >
+                    @if ($gallery->GalleryFoto != '')
+                      <img class="card-img" src="{{ asset('storage/' . $gallery->GalleryFoto)}}" alt="{{ $gallery->GalleryJudul}}">
+                    @else
+                      <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $gallery->GalleryJudul}}">
+                    @endif
                   </div>
                 </div>
                 <!-- /.card-body -->

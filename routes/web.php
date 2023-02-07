@@ -5,13 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArtikelUserController;
 use App\Http\Controllers\GalleryUserController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\ProfileController;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +43,10 @@ Route::get('blog', function () {
 Route::get('blog', [ArtikelUserController::class, 'index'], function () {
     return view('blog');
 })->name('blog');
+
+Route::get('blog/singleblog/{id}', [ArtikelUserController::class, 'show'], function () {
+    return view('singleblog');
+})->name('singleblog');
 
 //register
 Route::get('registrasi', function () {
@@ -93,6 +93,7 @@ Route::put('admin/admin/{id}', [AdminController::class, 'updateadmin'])->name('u
 
 //hapus data admin
 Route::get('admin/delete-admin/{id}', [AdminController::class, 'delete']);
+
 
 //page artikel
 Route::get('admin/artikel', [ArtikelController::class, 'index'],function () {

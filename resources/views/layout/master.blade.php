@@ -78,7 +78,7 @@
             <h4>Link Halaman</h4>
             <ul>
               <li><a href="{{ URL::route('index') }}">Home</a></li>
-              <li><a  href="{{ URL::route('about') }}t">About</a></li>
+              <li><a  href="{{ URL::route('about') }}">About</a></li>
               <li><a  href="{{ URL::route('blog') }}">Blog</a></li>
               <li><a  href="{{ URL::route('Portfolio') }}">Portfolio</a></li>
             </ul>

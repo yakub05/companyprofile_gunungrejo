@@ -30,7 +30,11 @@
             @foreach ($artikelList as $item)
             <article class="entry" {{ $loop->iteration }}>
               <div class="entry-img">
-                <img class="card-img" src="{{ asset('storage/' . $item->ArtikelFoto)}}" alt="{{ $item->ArtikelJudul}}">
+                @if ($item->ArtikelFoto != '')
+                  <img class="card-img" src="{{ asset('storage/' . $item->ArtikelFoto)}}" alt="{{ $item->ArtikelJudul}}">
+                @else
+                  <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $item->ArtikelJudul }}">
+                @endif
               </div>
 
               <h2 class="entry-title">
@@ -49,7 +53,8 @@
                     {{htmlspecialchars(trim(strip_tags($item->excerpt())))}}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="blog/singleblog/{{ $item->id }}">Read More</a>
+                  {{-- <a href="/blog/singleblog">Read More</a> --}}
                 </div>
               </div>
               
@@ -150,3 +155,5 @@
 </body>
 
 </html>
+
+@endsection
