@@ -14,7 +14,7 @@
       </div>
       <div class="container">
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{{ URL::route('index') }}">Home</a></li>
           <li>Blog</li>
         </ol>
       </div>
@@ -33,18 +33,18 @@
                 @if ($item->ArtikelFoto != '')
                   <img class="card-img" src="{{ asset('storage/' . $item->ArtikelFoto)}}" alt="{{ $item->ArtikelJudul}}">
                 @else
-                  <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $item->ArtikelJudul }}">
+                  <img class="card-img" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->ArtikelJudul }}">
                 @endif
               </div>
 
               <h2 class="entry-title">
-                <a href="{{ $item->id }}">{{ $item->ArtikelJudul }}</a>
+                <a href="blog/detail-blog/{{ $item->id }}">{{ $item->ArtikelJudul }}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ $item->id }}">{{ $item->ArtikelJudul }}</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{{ $item->id }}"><time datetime="2020-01-01">{{ $item->WaktuPembuatan }}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a>{{ $item->ArtikelJudul }}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a><time datetime="2020-01-01">{{ $item->WaktuPembuatan }}</time></a></li>
                 </ul>
               </div>
 
@@ -53,8 +53,8 @@
                     {{htmlspecialchars(trim(strip_tags($item->excerpt())))}}
                 </p>
                 <div class="read-more">
-                  <a href="blog/singleblog/{{ $item->id }}">Read More</a>
-                  {{-- <a href="/blog/singleblog">Read More</a> --}}
+                  {{-- <a href="blog/detail-blog/{{ $item->id }}">Read More</a> --}}
+                  <a href="blog/detail-blog/{{ $item->id }}">Read More</a>
                 </div>
               </div>
               

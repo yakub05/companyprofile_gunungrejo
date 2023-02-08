@@ -75,10 +75,10 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>
                           @if ($item->GalleryFoto != '')
-                          <img class="card-img" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}">
-                        @else
-                          <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $item->GalleryJudul}}">
-                        @endif
+                            <img class="card-img" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}">
+                          @else
+                            <img class="card-img" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->GalleryJudul}}">
+                          @endif
                         </td>
                         <td>{{ $item->GalleryJudul }}</td>
                         <td class="project-actions text-right">

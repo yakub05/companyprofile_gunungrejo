@@ -41,11 +41,11 @@
               @if ($item->GalleryFoto != '')
                 <img class="img-fluid" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}">
               @else
-                <img class="img-fluid" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $item->GalleryJudul}}">
+                <img class="img-fluid" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->GalleryJudul}}">
               @endif
               {{-- <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""> --}}
               <div class="portfolio-info">
-                <h4><a href="{{ $item->id }}">{{ $item->GalleryJudul }}</a></h4>
+                <h4><a href="Portfolio/detail-Portfolio/{{ $item->id }}">{{ $item->GalleryJudul }}</a></h4>
                 <p>{{htmlspecialchars(trim(strip_tags($item->GalleryDeskripsi)))}}</p>
                 {{-- <p>{{htmlspecialchars(trim(strip_tags($item->GalleryTanggal)))}}</p> --}}
                 <div class="d-flex align-items-center">

@@ -82,7 +82,7 @@
                           @if ($item->ArtikelFoto != '')
                             <img class="card-img" src="{{ asset('storage/' . $item->ArtikelFoto)}}" alt="{{ $item->ArtikelJudul}}">
                           @else
-                            <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $item->ArtikelJudul }}">
+                            <img class="card-img" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->ArtikelJudul }}">
                           @endif
                         </td>
                         <td>{{ $item->ArtikelJudul }}</td>

@@ -41,6 +41,10 @@ Route::get('Portfolio', [GalleryUserController::class, 'index'], function () {
     return view('Portfolio');
 })->name('Portfolio');
 
+Route::get('Portfolio/detail-Portfolio/{id}', [GalleryUserController::class, 'show'], function () {
+    return view('detail-Portfolio');
+})->name('detail-Portfolio');
+
 Route::get('blog', function () {
     return view('blog');
 })->name('blog');
@@ -49,13 +53,9 @@ Route::get('blog', [ArtikelUserController::class, 'index'], function () {
     return view('blog');
 })->name('blog');
 
-Route::get('blog/singleblog/{id}', [ArtikelUserController::class, 'show'], function () {
-    return view('singleblog');
-})->name('singleblog');
-
-Route::get('detail_blog', function () {
-    return view('detail_blog');
-})->name('detail_blog');
+Route::get('blog/detail-blog/{id}', [ArtikelUserController::class, 'show'], function () {
+    return view('detail-blog');
+})->name('detail-blog');
 
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 

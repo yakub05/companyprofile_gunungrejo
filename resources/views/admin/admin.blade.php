@@ -77,7 +77,7 @@
                           @if ($item->AdminFoto != '')
                             <img class="card-img" src="{{ asset('storage/' . $item->AdminFoto)}}" alt="{{ $item->nama }}">
                           @else
-                            <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $item->nama}}">
+                            <img class="card-img" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->nama}}">
                           @endif
                         </td>
                         <td>{{ $item->nama }}</td>

@@ -36,9 +36,9 @@
                 <div class="card-body box-profile">
                   <div class="text-center">
                     @if ($admin->AdminFoto != '')
-                      <img class="card-img" src="{{ asset('storage/' . $admin->AdminFoto)}}" alt="{{ $admin->nama}}">
+                      <img width="60%" height="40%" src="{{ asset('storage/' . $admin->AdminFoto)}}" alt="{{ $admin->nama}}">
                     @else
-                      <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $admin->nama}}">
+                      <img width="60%" height="40%" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $admin->nama}}">
                     @endif
                   </div>
                 </div>

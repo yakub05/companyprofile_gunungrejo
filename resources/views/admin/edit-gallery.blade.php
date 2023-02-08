@@ -70,7 +70,11 @@
                 <div class="mb-3">
                   <label for="GalleryFoto" class="form-label">Foto Gallery</label>
                   <div>
-                    <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" value="{{ old('GalleryFoto') }}" src="{{ asset('storage/' . $gallery->GalleryFoto)}}">
+                    @if ($gallery->GalleryFoto != '')
+                      <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" src="{{ asset('storage/' . $gallery->GalleryFoto)}}" alt="{{ $gallery->GalleryJudul}}">
+                    @else
+                      <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $gallery->GalleryJudul}}">
+                    @endif
                   </div>
                   <input class="form-control" type="file" id="GalleryFoto" name="GalleryFoto" value="{{ $gallery->GalleryFoto }}" onchange="previewImage()">
                   @error('GalleryFoto')

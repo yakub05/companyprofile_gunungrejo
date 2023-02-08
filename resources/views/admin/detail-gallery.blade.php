@@ -36,9 +36,9 @@
                 <div class="card-body box-profile" >
                   <div class="text-center" >
                     @if ($gallery->GalleryFoto != '')
-                      <img class="card-img" src="{{ asset('storage/' . $gallery->GalleryFoto)}}" alt="{{ $gallery->GalleryJudul}}">
+                      <img width="60%" height="40%" src="{{ asset('storage/' . $gallery->GalleryFoto)}}" alt="{{ $gallery->GalleryJudul}}">
                     @else
-                      <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $gallery->GalleryJudul}}">
+                      <img width="60%" height="40%" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $gallery->GalleryJudul}}">
                     @endif
                   </div>
                 </div>

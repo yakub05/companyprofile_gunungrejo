@@ -21,6 +21,6 @@ class GalleryUserController extends Controller
     public function show($id)
     {
        $gallery = Gallery::findOrFail($id);
-        return view('Portfolio', ['Gallery' =>$gallery]);
+        return view('detail-Portfolio', ['gallery' =>$gallery]);
     }
 }

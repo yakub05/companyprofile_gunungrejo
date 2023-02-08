@@ -70,7 +70,11 @@
                 <div class="mb-3">
                   <label for="ArtikelFoto" class="form-label">Foto Artikel</label>
                   <div>
-                    <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" value="{{ old('ArtikelFoto') }}" src="{{ asset('storage/' . $artikel->ArtikelFoto)}}">
+                    @if ($artikel->ArtikelFoto != '')
+                      <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" value="{{ old('ArtikelFoto') }}" src="{{ asset('storage/' . $artikel->ArtikelFoto)}}" alt="{{ $artikel->ArtikelJudul}}">
+                    @else
+                      <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $artikel->ArtikelJudul }}">
+                    @endif
                   </div>
                   <input class="form-control" type="file" id="ArtikelFoto" name="ArtikelFoto" value="{{ $artikel->ArtikelFoto }}" onchange="previewImage()">
                   @error('ArtikelFoto')

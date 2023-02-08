@@ -33,12 +33,12 @@
           
             <div class="col-md-5">
               <!-- Profile Image -->
-                <div class="card-body box-profile col-md-4">
+                <div class="card-body box-profile">
                   <div class="text-center">
                     @if ($artikel->ArtikelFoto != '')
-                      <img class="card-img" src="{{ asset('storage/' . $artikel->ArtikelFoto)}}" alt="{{ $artikel->ArtikelJudul}}">
+                      <img width="60%" height="40%" src="{{ asset('storage/' . $artikel->ArtikelFoto)}}" alt="{{ $artikel->ArtikelJudul}}">
                     @else
-                      <img class="card-img" src="{{ asset('assets\default-img\default-img.jpg') }}" alt="{{ $artikel->ArtikelJudul}}">
+                      <img width="60%" height="40%" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $artikel->ArtikelJudul}}">
                     @endif
                   </div>
                 </div>
