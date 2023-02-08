@@ -49,7 +49,7 @@ Route::get('blog', [ArtikelUserController::class, 'index'], function () {
     return view('blog');
 })->name('blog');
 
-Route::get('detail_blog', function () {
+Route::get('detail_blog/{{id}}', [ArtikelUserController::class, 'show'], function () {
     return view('detail_blog');
 })->name('detail_blog');
 

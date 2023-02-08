@@ -49,13 +49,13 @@
                     {{htmlspecialchars(trim(strip_tags($item->excerpt())))}}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="detail_blog/{{ $item->id }}">Read More</a>
                 </div>
               </div>
-              
+
             </article><!-- End blog entry -->
             @endforeach
-            
+
             <div>
               {{ $artikelList->withQueryString()->links() }}
             </div>

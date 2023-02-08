@@ -32,7 +32,11 @@
             <article class="entry entry-single">
 
               <div class="entry-img">
-                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                @if ($artikel->ArtikelFoto)
+                    <img class="card-img" src="{{ asset('storage/' . $artikel->ArtikelFoto)}}" alt="{{ $artikel->ArtikelJudul}}">
+                @else
+                    <img src="{{ asset('storage/' . $artikel->ArtikelFoto) }}" alt="{{ $artikel->ArtikelJudul}}">
+                @endif
               </div>
 
               <h2 class="entry-title">
