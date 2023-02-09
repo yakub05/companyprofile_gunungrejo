@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 
@@ -50,6 +51,8 @@ class AdminController extends Controller
         if($request->email != $admin->email){
             $rules['email'] = 'required|email';
         }
+
+        $rules['password'] = Hash::make($rules['password']);
 
         Admin::where('id', $admin->id)
                 ->update($rules);

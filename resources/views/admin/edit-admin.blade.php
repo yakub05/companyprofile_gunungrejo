@@ -70,7 +70,11 @@
                 <div class="mb-3">
                   <label for="AdminFoto" class="form-label">Gambar Admin</label>
                   <div>
-                    <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" value="{{ old('AdminFoto') }}" src="{{ asset('storage/' . $admin->AdminFoto)}}">
+                    @if ($admin->AdminFoto != '')
+                      <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" src="{{ asset('storage/' . $admin->AdminFoto)}}" alt="{{ $admin->nama}}" value="{{ old('AdminFoto') }}">
+                    @else
+                      <img class="img-preview mb-3" display="inline-block" height="30%" width="30%" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $admin->nama}}">
+                    @endif
                   </div>
                   <input class="form-control" type="file" id="AdminFoto" name="AdminFoto" value="{{ $admin->AdminFoto }}" onchange="previewImage()">
                   @error('AdminFoto')

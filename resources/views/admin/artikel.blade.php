@@ -61,7 +61,7 @@
                     <th style="width: 1%">
                         No.
                     </th>
-                    <th style="width: 10%">
+                    <th style="width: 15%">
                         Gambar
                     </th>
                     <th style="width: 20%">
@@ -78,8 +78,13 @@
                 @foreach ($artikelList as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td><img class="card-img" src="{{ asset('storage/' . $item->ArtikelFoto)}}" alt="{{ $item->ArtikelJudul}}"></td>
-                        {{-- <td>{{ $item->ArtikelFoto }}</td> --}}
+                        <td>
+                          @if ($item->ArtikelFoto != '')
+                            <img class="card-img" src="{{ asset('storage/' . $item->ArtikelFoto)}}" alt="{{ $item->ArtikelJudul}}">
+                          @else
+                            <img class="card-img" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->ArtikelJudul }}">
+                          @endif
+                        </td>
                         <td>{{ $item->ArtikelJudul }}</td>
                         <td>{{ $item->WaktuPembuatan }}</td>
                         <td class="project-actions text-right">

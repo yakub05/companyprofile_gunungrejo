@@ -22,6 +22,6 @@ class ArtikelUserController extends Controller
     public function show($id)
     {
         $artikel = Artikel::findOrFail($id);
-        return view('detail_blog', ['artikel' => $artikel]);
+        return view('detail-blog', ['artikel' => $artikel]);
     }
 }

@@ -35,9 +35,11 @@
               <!-- Profile Image -->
                 <div class="card-body box-profile">
                   <div class="text-center">
-                    <img class="card-img img-circle"
-                         src=""
-                         alt="Foto Profil User">
+                    @if ($admin->AdminFoto != '')
+                      <img width="60%" height="40%" src="{{ asset('storage/' . $admin->AdminFoto)}}" alt="{{ $admin->nama}}">
+                    @else
+                      <img width="60%" height="40%" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $admin->nama}}">
+                    @endif
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -64,9 +66,10 @@
               <p class="text-muted">{{$admin->NoTelp}}</p>
 
               <div class="col card-header text-right">
-                <button type="button" class="btn btn-secondary" href="/admin/admin">Kembali </button>
+                <a class="btn btn-secondary" href="/admin/admin">Kembali</a>
+              </div>
             </div>
-            </div>
+            
             <!-- /.card-body -->
           </div>
         </div>

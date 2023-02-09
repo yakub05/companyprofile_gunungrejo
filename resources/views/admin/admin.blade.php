@@ -59,7 +59,7 @@
                     <th style="width: 1%">
                         No.
                     </th>
-                    <th style="width: 20%">
+                    <th style="width: 15%">
                         Foto Profil
                     </th>
                     <th style="width: 30%">
@@ -73,7 +73,13 @@
                 @foreach ($adminList as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td><img class="card-img" src="{{ asset('storage/' . $item->AdminFoto)}}" alt="{{ $item->nama }}"></td>
+                        <td>
+                          @if ($item->AdminFoto != '')
+                            <img class="card-img" src="{{ asset('storage/' . $item->AdminFoto)}}" alt="{{ $item->nama }}">
+                          @else
+                            <img class="card-img" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->nama}}">
+                          @endif
+                        </td>
                         <td>{{ $item->nama }}</td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="admin/detail-admin/{{ $item->id }}">

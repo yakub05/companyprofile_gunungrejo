@@ -38,11 +38,14 @@
           @foreach ($galleryList as $item)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app" {{ $loop->iteration }}>
             <div class="portfolio-wrap">
-              
-              <img class="img-fluid" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}">
+              @if ($item->GalleryFoto != '')
+                <img class="img-fluid" src="{{ asset('storage/' . $item->GalleryFoto)}}" alt="{{ $item->GalleryJudul}}">
+              @else
+                <img class="img-fluid" src="{{ asset('assets\User\default-img\default-img.jpg') }}" alt="{{ $item->GalleryJudul}}">
+              @endif
               {{-- <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""> --}}
               <div class="portfolio-info">
-                <h4><a href="{{ $item->id }}">{{ $item->GalleryJudul }}</a></h4>
+                <h4><a href="Portfolio/detail-Portfolio/{{ $item->id }}">{{ $item->GalleryJudul }}</a></h4>
                 <p>{{htmlspecialchars(trim(strip_tags($item->GalleryDeskripsi)))}}</p>
                 {{-- <p>{{htmlspecialchars(trim(strip_tags($item->GalleryTanggal)))}}</p> --}}
                 <div class="d-flex align-items-center">
@@ -59,8 +62,11 @@
           </div>
           @endforeach
         </div>
-
+        <div>
+          {{ $galleryList->withQueryString()->links() }}
+        </div>
       </div>
+
     </section><!-- End Portfolio Section -->
 
   </main><!-- End #main -->
