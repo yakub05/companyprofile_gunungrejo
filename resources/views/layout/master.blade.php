@@ -87,20 +87,16 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-contact">
-            <h4>Hubungi Kami</h4>
+            <h4>Alamat Kami</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+                Dusun Biru, Desa Gunungrejo, Kecamatan Singosari, Kabupaten Malang - Jawa Timur <br>
+              <strong>Phone:</strong> 0851-0181-6153<br>
+              <strong>Email:</strong>kedokombo@gmail.com<br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://instagram.com/wisatakedokombo?igshid=YmMyMTA2M2Y=" class="instagram"><i class="bi bi-instagram"></i></a>
             </div>
 
           </div>

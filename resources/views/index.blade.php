@@ -38,31 +38,32 @@
         <div class="container">
         <div class="section-title p-4" >
             <h2>Apa Sih Kedok Ombo Itu?</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <p>Kedok Ombo merupakan tempat wisata desa yang dikelola oleh BUMDES (Badan Usaha Milik Desa) Gunungrejo yang menawarkan wisata berupa Edufarm serta Cafe & Resto yang bernuansa alam, kedok ombo sendiri berlokasi di kaki gunung Arjuna pada Desa Gunungrejo tepatnya Dusun Kreweh</p>
           </div>
         <div class="row">
 
           <div class="col-lg-6 video-box align-self-baseline position-relative">
             <img src="assets/User/img/about.jpg" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+            <a href="hhttps://www.youtube.com/watch?v=qSVDSb7WDP4" class="glightbox play-btn mb-4"></a>
           </div>
 
           <div class="col-lg-6 pt-3 pt-lg-0 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            <h3>Destinasi Wisata Kedok Ombo </h3>
+            <p>
+                Berikut ini merupakan objek wisata yang ada di Kedok Ombo, Desa Gunungrejo, Singosari - Malang :
             </p>
             <ul>
-              <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bx bx-check-double"></i> Voluptate repellendus pariatur reprehenderit corporis sint.</li>
-              <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li><i class="bx bx-check-double"></i>Area Pertanian dan Edu Farm</li>
+              <li><i class="bx bx-check-double"></i>Ruang Edukasi dan Perlengkapan</li>
+              <li><i class="bx bx-check-double"></i>Kolam Renang</li>
+              <li><i class="bx bx-check-double"></i>Musholla</li>
+              <li><i class="bx bx-check-double"></i>Ruang Pengelola</li>
+              <li><i class="bx bx-check-double"></i>Amphitheater</li>
+              <li><i class="bx bx-check-double"></i>Cafe Sawah</li>
             </ul>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+             Selain destinasi tersebut, kami juga menawarkan area spot selfi di maskot wisata Kedok Ombo yaitu kincir angin.
+             Bagi kalian yang kepo dengan destinasi tersebut silahkan datang ke Kedok Ombo
             </p>
           </div>
 

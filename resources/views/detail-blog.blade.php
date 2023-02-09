@@ -9,7 +9,7 @@
         <div class="container">
           <div class="breadcrumb-hero">
             <h2>Blog</h2>
-            <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+            <p>Dibawah ini merupakan beberapa situs terkait wisata Kedok Ombo yang dapat diakses oleh pengunjung </p>
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
 
               <div class="entry-content">
                 <p>
-                  {{htmlspecialchars(trim(strip_tags($artikel->excerpt())))}}
+                  {{htmlspecialchars(trim(strip_tags($artikel->ArtikelDeskripsi)))}}
                 </p>
               </div>
 
